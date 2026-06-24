@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portale Segnalazioni - I.S.I.S.S. Magnaghi-Solari</title>
-    
     <link rel="icon" type="image/png" href="logo-icona.png">
 
     <style>
@@ -338,6 +337,22 @@
         .footer-links a:hover {
             text-decoration: underline;
         }
+
+        .github-footer-box {
+            margin-top: 15px;
+            font-size: 0.75rem;
+            color: #555555;
+        }
+        
+        .github-footer-box a {
+            color: #24292e;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .github-footer-box a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
@@ -355,6 +370,7 @@
 
     <div class="container">
         
+        <!-- TAB 1: SPAZIO INFORMATIVO -->
         <div id="content-info" class="tab-content active">
             <div class="card">
                 <div class="logo-container">
@@ -370,29 +386,28 @@
                 
                 <div class="instruction-box">
                     <h3>📱 Istruzioni per l'Uso e Consigli Operativi</h3>
-                    <p style="font-size: 0.85rem; margin-bottom: 8px; color: #555;">Per garantire il corretto funzionamento del sistema di invio automatico, si raccomanda di seguire queste linee guida:</p>
                     <ol>
                         <li><strong>Uso dello Smartphone (Consigliato):</strong> Si consiglia caldamente di compilare e inviare le segnalazioni tramite smartphone o tablet. I dispositivi mobili integrano nativamente la gestione dei collegamenti di posta, rendendo l'invio immediato.</li>
-                        <li><strong>Account Istituzionale:</strong> Per l'invio della segnalazione, assicurarsi che sul proprio dispositivo sia configurato e attivo l'account email istituzionale della scuola (es. <code>utente@magnaghisolari.edu.it</code> su applicazione Gmail o Outlook).</li>
-                        <li><strong>Due modalità di segnalazione:</strong> È possibile utilizzare la sezione <strong>SEGNALA (MOD.1)</strong> per un rapido invio digitale. In alternativa, nella sezione <strong>Documenti e Link</strong> è disponibile il modello cartaceo ufficiale da scaricare, compilare e consegnare manualmente ad un docente di riferimento della classe.</li>
+                        <li><strong>Account Istituzionale:</strong> Per l'invio della segnalazione, assicurarsi che sul proprio dispositivo sia configurato e attivo l'account email istituzionale della scuola (es. <code>utente@magnaghisolari.edu.it</code>).</li>
+                        <li><strong>Due modalità di segnalazione:</strong> È possibile utilizzare la sezione SEGNALA (MOD.1) per un rapido invio digitale compilando il form. In alternativa, nella sezione Documenti e Link è disponibile il modello cartaceo ufficiale da scaricare, compilare e consegnare manualmente al docente di riferimento della classe.</li>
                     </ol>
                 </div>
             </div>
         </div>
 
+        <!-- TAB 2: MODULO SEGNALAZIONE -->
         <div id="content-segnala" class="tab-content">
             <div class="card">
                 <h2>MODULO 1: Scheda di Segnalazione Caso</h2>
                 <p class="intro-text">
-                    Usa questo modulo per <strong>segnalare in prima persona (se sei la vittima)</strong>, o <strong>per conto di terzi</strong>, <strong>comportamenti offensivi</strong>, <strong>aggressioni fisiche</strong>, <strong>prese in giro</strong> o <strong>isolamento dal gruppo</strong>. La segnalazione può riguardare episodi verificatisi tra gli alunni <strong>all'interno della scuola</strong>, <strong>durante il tragitto casa-scuola</strong>, oppure <strong>online</strong> attraverso i <strong>social network</strong>, la <strong>messaggistica</strong> e i <strong>giochi in rete</strong>. Per maggiori informazioni sui fenomeni di bullismo e cyberbullismo consulta la sezione <strong>Documenti e Link</strong>.
+                    Usa questo modulo per <strong>segnalare in prima persona (se sei la vittima)</strong>, o <strong>per conto di terzi</strong>, <strong>comportamenti offensivi</strong>, <strong>aggressioni fisiche</strong>, <strong>prese in giro</strong> o <strong>isolamento dal gruppo</strong>.
                 </p>
                 
                 <div class="note-box">
-                    <strong>Massima Riservatezza:</strong> Si garantisce la riservatezza di colui che fa la segnalazione entro i limiti disposti dalla legge. È consigliato fornire il maggior numero di dettagli per consentire alla scuola di intervenire efficacemente.
+                    <strong>Massima Riservatezza:</strong> Si garantisce la riservatezza di colui che fa la segnalazione entro i limiti disposti dalla legge.
                 </div>
 
                 <form id="bullyForm" onsubmit="sendEmail(event)">
-                    
                     <div class="form-group row-flex">
                         <div>
                             <label for="segnalatore_nome">Nome di chi compila *</label>
@@ -440,66 +455,35 @@
                                 <input type="text" id="vittima1_nome" placeholder="Nome e Cognome">
                                 <input type="text" id="vittima1_classe" placeholder="Classe/Sezione" style="max-width: 150px;">
                             </div>
-                            <h4>Altre presunte vittime</h4>
-                            <div class="row-flex" style="margin-bottom: 8px;">
-                                <input type="text" id="vittima2_nome" placeholder="Seconda vittima (Nome)">
-                                <input type="text" id="vittima2_classe" placeholder="Classe" style="max-width: 150px;">
-                            </div>
-                            <div class="row-flex">
-                                <input type="text" id="vittima3_nome" placeholder="Terza vittima (Nome)">
-                                <input type="text" id="vittima3_classe" placeholder="Classe" style="max-width: 150px;">
-                            </div>
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>3. Bullo o bulli (o presunti)</label>
                         <div class="sub-section">
-                            <div class="row-flex" style="margin-bottom: 8px;">
+                            <div class="row-flex">
                                 <input type="text" id="bullo1_nome" placeholder="Nome del presunto bullo">
                                 <input type="text" id="bullo1_classe" placeholder="Classe" style="max-width: 150px;">
                             </div>
-                            <div class="row-flex" style="margin-bottom: 8px;">
-                                <input type="text" id="bullo2_nome" placeholder="Secondo presunto bullo">
-                                <input type="text" id="bullo2_classe" placeholder="Classe" style="max-width: 150px;">
-                            </div>
-                            <div class="row-flex">
-                                <input type="text" id="bullo3_nome" placeholder="Terzo presunto bullo">
-                                <input type="text" id="bullo3_classe" placeholder="Classe" style="max-width: 150px;">
-                            </div>
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>4. Erano presenti altre persone (Testimoni)?</label>
-                        <div class="checkbox-box" style="margin-bottom: 8px;">
-                            <label class="checkbox-option"><input type="checkbox" id="testimoni_presenti" onchange="toggleTestimoni(this)"> SÌ (Se sì, inserisci i nomi sotto)</label>
-                        </div>
-                        <input type="text" id="testimoni_nomi" placeholder="Nomi delle persone presenti" disabled style="background-color: #e2e8f0;">
+                        <label for="accaduto_testo">4. Breve presentazione dell'accaduto *</label>
+                        <textarea id="accaduto_testo" rows="4" required placeholder="Descrivi cosa è successo..."></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="accaduto_testo">5. Breve presentazione dell'accaduto *</label>
-                        <textarea id="accaduto_testo" rows="4" required placeholder="Descrivi cosa è successo, dove e come..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="frequenza_episodi">6. Quante volte sono successi gli episodi? *</label>
-                        <input type="text" id="frequenza_episodi" required placeholder="Es: Episodio isolato, succede ogni giorno, qualche volta alla settimana...">
+                        <label for="frequenza_episodi">5. Quante volte sono successi gli episodi? *</label>
+                        <input type="text" id="frequenza_episodi" required placeholder="Es: Episodio isolato, succede ogni giorno...">
                     </div>
 
                     <button type="submit" class="submit-btn">INVIA SEGNALAZIONE AL TEAM 🚨</button>
-
-                    <div style="margin-top: 15px; text-align: center; font-size: 0.8rem; color: #555555; background: #fff5f5; padding: 10px; border-radius: 6px; border: 1px dashed #d32f2f;">
-                        <strong>In caso di emergenza immediata o pericolo imminente, contatta subito:</strong><br>
-                        📞 <strong>112</strong>: Numero di emergenza Unico Europeo (Forze di Polizia e Vigili del Fuoco) | 
-                        📞 <strong>118</strong>: Emergenza Sanitaria e primo soccorso | 
-                        📞 <strong>114</strong>: Emergenza Infanzia
-                    </div>
                 </form>
             </div>
         </div>
 
+        <!-- TAB 3: AREA DOWNLOAD PDF E LINK UTILI -->
         <div id="content-download" class="tab-content">
             <div class="card">
                 <h2>Documenti, Modulistica e Link Utili</h2>
@@ -508,14 +492,6 @@
                 </p>
                 
                 <ul class="download-list">
-                    <li class="download-item" style="border-left: 4px solid #24292e;">
-                        <div class="file-info">
-                            <h4>README.md del Progetto (GitHub)</h4>
-                            <p>Consulta la documentazione tecnica e le note di sviluppo direttamente sul repository</p>
-                        </div>
-                        <a href="https://github.com/teamantibullismo/team-antibullismo/blob/main/README.md" target="_blank" class="download-link" style="background-color: #24292e;">Vedi su GitHub</a>
-                    </li>
-
                     <li class="download-item">
                         <div class="file-info">
                             <h4>Vademecum Gestione Presunti Atti</h4>
@@ -547,34 +523,11 @@
                         </div>
                         <a href="https://www.istruzione.it/bullismo-e-cyberbullismo/index.html" target="_blank" class="download-link">Apri Link</a>
                     </li>
-
-                    <li class="download-item">
-                        <div class="file-info">
-                            <h4>Piattaforma ELISA</h4>
-                            <p>Formazione per docenti e monitoraggio nazionale</p>
-                        </div>
-                        <a href="https://www.piattaformaelisa.it/" target="_blank" class="download-link">Apri Link</a>
-                    </li>
-
-                    <li class="download-item">
-                        <div class="file-info">
-                            <h4>Vademecum per i Genitori (Telefono Azzurro)</h4>
-                            <p>Guida pratica su opportunità e rischi digitali</p>
-                        </div>
-                        <a href="https://azzurro.it/wp-content/uploads/2023/02/TA_SID23_genitori_web.pdf" target="_blank" class="download-link">Apri PDF</a>
-                    </li>
-
-                    <li class="download-item">
-                        <div class="file-info">
-                            <h4>Generazioni Connesse</h4>
-                            <p>Safer Internet Centre Italiano per l'uso sicuro della rete</p>
-                        </div>
-                        <a href="https://www.generazioniconnesse.it/site/" target="_blank" class="download-link">Apri Link</a>
-                    </li>
                 </ul>
             </div>
         </div>
 
+        <!-- FOOTER AGGIORNATO CON REPO IN CODA -->
         <footer>
             I.S.I.S.S. "Magnaghi - Solari" - Salsomaggiore Terme • Fidenza • Parma<br>
             Contatti: pris006003@istruzione.it | pris006003@pec.istruzione.it
@@ -582,6 +535,9 @@
                 <a href="https://www.magnaghisolari.edu.it/privacy" target="_blank">Informativa Privacy</a>
                 <a href="https://www.magnaghisolari.edu.it/note-legali" target="_blank">Note legali</a>
                 <a href="https://www.magnaghisolari.edu.it/accessibilita" target="_blank">Dichiarazione di accessibilità</a>
+            </div>
+            <div class="github-footer-box">
+                🛠️ <a href="https://github.com/teamantibullismo/team-antibullismo/blob/main/README.md" target="_blank">README.md del Progetto</a>: Consulta la documentazione tecnica e le note di sviluppo direttamente sul repository.
             </div>
         </footer>
     </div>
@@ -612,20 +568,6 @@
             }
         }
 
-        function toggleTestimoni(checkbox) {
-            const inputNomi = document.getElementById('testimoni_nomi');
-            if (checkbox.checked) {
-                inputNomi.disabled = false;
-                inputNomi.style.backgroundColor = "#fafafa";
-                inputNomi.required = true;
-            } else {
-                inputNomi.disabled = true;
-                inputNomi.style.backgroundColor = "#e2e8f0";
-                inputNomi.value = "";
-                inputNomi.required = false;
-            }
-        }
-
         function sendEmail(event) {
             event.preventDefault();
             
@@ -639,50 +581,27 @@
             }
             
             const ruolo = document.querySelector('input[name="ruolo_segnalatore"]:checked').value;
-            
             const vit1_n = document.getElementById('vittima1_nome').value || "Non specificato";
             const vit1_c = document.getElementById('vittima1_classe').value || "-";
-            const vit2_n = document.getElementById('vittima2_nome').value || "";
-            const vit2_c = document.getElementById('vittima2_classe').value || "";
-            const vit3_n = document.getElementById('vittima3_nome').value || "";
-            const vit3_c = document.getElementById('vittima3_classe').value || "";
-            
             const bul1_n = document.getElementById('bullo1_nome').value || "Non specificato";
             const bul1_c = document.getElementById('bullo1_classe').value || "-";
-            const bul2_n = document.getElementById('bullo2_nome').value || "";
-            const bul2_c = document.getElementById('bullo2_classe').value || "";
-            const bul3_n = document.getElementById('bullo3_nome').value || "";
-            const bul3_c = document.getElementById('bullo3_classe').value || "";
-            
-            const testimoniCheck = document.getElementById('testimoni_presenti').checked ? "SÌ" : "NO";
-            const testimoniNomi = document.getElementById('testimoni_nomi').value || "-";
-            
             const accaduto = document.getElementById('accaduto_testo').value;
             const frequenza = document.getElementById('frequenza_episodi').value;
 
             const emailTo = "team.antibullismo@magnaghisolari.edu.it";
             const subject = encodeURIComponent("SEGNALAZIONE MODULO 1 - " + plesso);
             
-            let body = `MODULO 1 - SEGNALAZIONE CASO DI BULLISMO/COMPORTAMENTI AGGRESSIVI\n`;
+            let body = `MODULO 1 - SEGNALAZIONE CASO\n`;
             body += `---------------------------------------------------------\n`;
             body += `Compilato da: ${segnalatore}\n`;
             body += `Data: ${data}\n`;
-            body += `Plesso Scolastico / Luogo: ${plesso}\n`;
-            body += `Il segnalatore è: ${ruolo}\n\n`;
-            body += `2. PRESUNTA VITTIMA/E:\n`;
-            body += ` - Nome: ${vit1_n} | Classe: ${vit1_c}\n`;
-            if(vit2_n) body += ` - Nome: ${vit2_n} | Classe: ${vit2_c}\n`;
-            if(vit3_n) body += ` - Nome: ${vit3_n} | Classe: ${vit3_c}\n`;
-            body += `\n3. PRESUNTO/I BULLO/I:\n`;
-            body += ` - Nome: ${bul1_n} | Classe: ${bul1_c}\n`;
-            if(bul2_n) body += ` - Nome: ${bul2_n} | Classe: ${bul2_c}\n`;
-            if(bul3_n) body += ` - Nome: ${bul3_n} | Classe: ${bul3_c}\n`;
-            body += `\n4. TESTIMONI PRESENTI: ${testimoniCheck}\n`;
-            if(testimoniCheck === "SÌ") body += ` Nomi testimoni: ${testimoniNomi}\n`;
-            body += `\n5. PRESENTAZIONE DELL'ACCADUTO:\n${accaduto}\n\n`;
-            body += `6. FREQUENZA EPISODI:\n${frequenza}\n`;
+            body += `Plesso: ${plesso}\n`;
+            body += `Ruolo: ${ruolo}\n\n`;
+            body += `PRESUNTA VITTIMA: ${vit1_n} (Classe: ${vit1_c})\n`;
+            body += `PRESUNTO BULLO: ${bul1_n} (Classe: ${bul1_c})\n\n`;
+            body += `DESCRIZIONE:\n${accaduto}\n\n`;
+            body += `FREQUENZA: ${frequenza}\n`;
             body += `---------------------------------------------------------\n`;
-            body += `Nota: Questo invio costituisce firma e convalida dei dati inseriti.`;
 
             const mailtoLink = `mailto:${emailTo}?subject=${subject}&body=${encodeURIComponent(body)}`;
             window.location.href = mailtoLink;
