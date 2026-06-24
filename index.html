@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portale Segnalazioni - I.S.I.S.S. Magnaghi-Solari</title>
+    
+    <!-- TAG PER L'ICONA NELLA SCHEDA DEL BROWSER (FAVICON) -->
+    <!-- Sostituisci "logo-icona.png" con il nome esatto del tuo file -->
+    <link rel="icon" type="image/png" href="logo-icona.png">
+
     <style>
         :root {
             --blue-istituzionale: #004693;
@@ -157,29 +162,6 @@
 
         .instruction-box li {
             margin-bottom: 6px;
-        }
-
-        .readme-iframe-container {
-            margin-top: 25px;
-            border-top: 2px dashed #cbd5e1;
-            padding-top: 20px;
-        }
-
-        .readme-iframe-container h3 {
-            color: #334155;
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .readme-frame {
-            width: 100%;
-            height: 450px;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            background-color: #f8fafc;
         }
 
         .form-group {
@@ -388,12 +370,6 @@
                         <li><strong>Postazioni PC Fisse:</strong> Se si utilizza un computer della scuola, il pulsante di invio aprirà il client di posta predefinito del sistema (es. Outlook). Se la postazione non è configurata con un account utente, l'invio automatico potrebbe non reindirizzare correttamente. In tal caso, si suggerisce di procedere da dispositivo personale.</li>
                     </ol>
                 </div>
-
-                <!-- SEZIONE IFRAME INCORPORATA IN BASSO ALLA HOME PAGE -->
-                <div class="readme-iframe-container">
-                    <h3>📄 Documentazione Tecnica del Progetto (README)</h3>
-                    <iframe class="readme-frame" src="README.md" title="Documentazione del Repository"></iframe>
-                </div>
             </div>
         </div>
 
@@ -527,6 +503,15 @@
                 </p>
                 
                 <ul class="download-list">
+                    <!-- LINK AL README DI GITHUB - FUNZIONANTE -->
+                    <li class="download-item" style="border-left: 4px solid #24292e;">
+                        <div class="file-info">
+                            <h4>README.md del Progetto (GitHub)</h4>
+                            <p>Consulta la documentazione tecnica e le note di sviluppo direttamente sul repository</p>
+                        </div>
+                        <a href="https://github.com/teamantibullismo/team-antibullismo/blob/main/README.md" target="_blank" class="download-link" style="background-color: #24292e;">Vedi su GitHub</a>
+                    </li>
+
                     <li class="download-item">
                         <div class="file-info">
                             <h4>Vademecum Gestione Presunti Atti</h4>
