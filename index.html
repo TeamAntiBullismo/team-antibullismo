@@ -235,7 +235,6 @@
             transform: scale(0.99);
         }
 
-        /* Sezione Download */
         .download-list {
             list-style: none;
         }
@@ -320,6 +319,7 @@
 
     <div class="container">
         
+        <!-- TAB 1: SPAZIO INFORMATIVO -->
         <div id="content-info" class="tab-content active">
             <div class="card">
                 <div class="logo-container">
@@ -331,17 +331,18 @@
                 </p>
                 <div class="note-box">
                     <strong>Plessi e strutture dell'Istituto:</strong><br>
-                    • Sede Centrale e Succursale - Salsomaggiore Terme (PR)<br>
-                    • I.P.S.A.S.R. "Solari" - Fidenza (PR)<br>
-                    • Succursale - Parma<br>
-                    • Azienda Agraria ISISS & L.T.O. "Food Farm 4.0"
+                    • Magnaghi Sede Centrale - Salsomaggiore Terme (PR)<br>
+                    • Succursale Parma<br>
+                    • Plesso Tommasini<br>
+                    • Succursale Fidenza Is. Agrario "Solari"
                 </div>
             </div>
         </div>
 
+        <!-- TAB 2: MODULO SEGNALAZIONE -->
         <div id="content-segnala" class="tab-content">
             <div class="card">
-                <h2>MODULO 1: Segnalazione Presunto Caso</h2>
+                <h2>MODULO 1: Scheda di Segnalazione Caso</h2>
                 <p class="intro-text">
                     Usa questo modulo per segnalare comportamenti offensivi, aggressioni fisiche, prese in giro, isolamento dal gruppo che si sono verificati tra gli alunni a scuola, nel tragitto casa-scuola, sui social network o tramite messaggi e giochi online.
                 </p>
@@ -365,14 +366,19 @@
 
                     <div class="form-group">
                         <label for="scuola_plesso">Scuola / Plesso *</label>
-                        <select id="scuola_plesso" required>
+                        <select id="scuola_plesso" required onchange="handlePlessoChange(this)">
                             <option value="">-- Seleziona il Plesso --</option>
-                            <option value="Sede centrale - Salsomaggiore Terme">Sede centrale - Salsomaggiore Terme</option>
-                            <option value="Succursale - Salsomaggiore Terme">Succursale - Salsomaggiore Terme</option>
-                            <option value="I.P.S.A.S.R. Solari - Fidenza">I.P.S.A.S.R. "Solari" - Fidenza</option>
-                            <option value="Succursale - Parma">Succursale - Parma</option>
-                            <option value="Food Farm 4.0 / Azienda Agraria">Food Farm 4.0 / Azienda Agraria</option>
+                            <option value="Magnaghi Sede Centrale - Salsomaggiore Terme">Magnaghi Sede Centrale - Salsomaggiore Terme</option>
+                            <option value="Succursale Parma">Succursale Parma</option>
+                            <option value="Plesso Tommasini">Plesso Tommasini</option>
+                            <option value="Succursale Fidenza Is. Agrario Solari">Succursale Fidenza Is. Agrario "Solari"</option>
+                            <option value="Altro luogo">Altro luogo (specificare sotto)</option>
                         </select>
+                    </div>
+
+                    <div class="form-group" id="altro_plesso_container" style="display: none;">
+                        <label for="altro_plesso_testo">Specificare altro luogo *</label>
+                        <input type="text" id="altro_plesso_testo" placeholder="Inserisci il luogo o contesto specifico">
                     </div>
 
                     <div class="form-group">
@@ -425,7 +431,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label>4. Erano presenti altre pessoas (Testimoni)?</label>
+                        <label>4. Erano presenti altre persone (Testimoni)?</label>
                         <div class="checkbox-box" style="margin-bottom: 8px;">
                             <label class="checkbox-option"><input type="checkbox" id="testimoni_presenti" onchange="toggleTestimoni(this)"> SÌ (Se sì, inserisci i nomi sotto)</label>
                         </div>
@@ -447,20 +453,21 @@
             </div>
         </div>
 
+        <!-- TAB 3: AREA DOWNLOAD PDF -->
         <div id="content-download" class="tab-content">
             <div class="card">
                 <h2>Documenti e Modulistica PDF</h2>
                 <p class="intro-text" style="margin-bottom: 20px;">
-                    In questa sezione è possibile scaricare la documentazione ufficiale d'Istituto trasmessa con la Circolare N. 57i per la consultazione o la compilazione manuale.
+                    In questa sezione è possibile scaricare la documentazione ufficiale d'Istituto per la consultazione o la compilazione manuale.
                 </p>
                 
                 <ul class="download-list">
                     <li class="download-item">
                         <div class="file-info">
-                            <h4>Circ. N. 573 - Vademecum Gestione Presunti Atti</h4>
-                            <p>Documento e linee guida ufficiali firmate digitalmente (05/05/2026)</p>
+                            <h4>Vademecum Gestione Presunti Atti</h4>
+                            <p>Documento e linee guida ufficiali d'Istituto</p>
                         </div>
-                        <a href="N._573_-_VADEMECUM_PER_LA_GESTIONE_di_PRESUNTI_ATTI_DI_BULLISMO-CYBERBULLISMO_signed.pdf" download class="download-link">Scarica PDF</a>
+                        <a href="VADEMECUM_GESTIONE_ATTI_BULLISMO.pdf" download class="download-link">Scarica PDF</a>
                     </li>
                     
                     <li class="download-item">
@@ -468,7 +475,7 @@
                             <h4>Codice di Intervento Anti-Bullismo e Cyberbullismo</h4>
                             <p>Delibera del Consiglio di Istituto N. 144/2023-2026</p>
                         </div>
-                        <a href="CODICE DI INTERVENTO ANTIBULLISMO-CYBERBULLISMO ISISS MAGNAGHI SOLARI_1.pdf" download class="download-link">Scarica PDF</a>
+                        <a href="CODICE_INTERVENTO_ANTIBULLISMO.pdf" download class="download-link">Scarica PDF</a>
                     </li>
 
                     <li class="download-item">
@@ -476,7 +483,7 @@
                             <h4>Modulo 1 - Scheda di Segnalazione Caso</h4>
                             <p>Modello cartaceo ufficiale d'istituto per la segnalazione</p>
                         </div>
-                        <a href="MODULO 1 segnalazione.pdf" download class="download-link">Scarica PDF</a>
+                        <a href="MODULO_1_segnalazione.pdf" download class="download-link">Scarica PDF</a>
                     </li>
                 </ul>
             </div>
@@ -501,6 +508,19 @@
             document.getElementById('tab-' + tabId).classList.add('active');
         }
 
+        function handlePlessoChange(select) {
+            const altroContainer = document.getElementById('altro_plesso_container');
+            const altroInput = document.getElementById('altro_plesso_testo');
+            if (select.value === "Altro luogo") {
+                altroContainer.style.display = "block";
+                altroInput.required = true;
+            } else {
+                altroContainer.style.display = "none";
+                altroInput.required = false;
+                altroInput.value = "";
+            }
+        }
+
         function toggleTestimoni(checkbox) {
             const inputNomi = document.getElementById('testimoni_nomi');
             if (checkbox.checked) {
@@ -520,7 +540,13 @@
             
             const segnalatore = document.getElementById('segnalatore_nome').value;
             const data = document.getElementById('data_accaduto').value;
-            const plesso = document.getElementById('scuola_plesso').value;
+            let plesso = document.getElementById('scuola_plesso').value;
+            
+            if (plesso === "Altro luogo") {
+                const specificazione = document.getElementById('altro_plesso_testo').value;
+                plesso = "Altro luogo (" + specificazione + ")";
+            }
+            
             const ruolo = document.querySelector('input[name="ruolo_segnalatore"]:checked').value;
             
             const vit1_n = document.getElementById('vittima1_nome').value || "Non specificato";
@@ -550,7 +576,7 @@
             body += `---------------------------------------------------------\n`;
             body += `Compilato da: ${segnalatore}\n`;
             body += `Data: ${data}\n`;
-            body += `Plesso Scolastico: ${plesso}\n`;
+            body += `Plesso Scolastico / Luogo: ${plesso}\n`;
             body += `Il segnalatore è: ${ruolo}\n\n`;
             body += `2. PRESUNTA VITTIMA/E:\n`;
             body += ` - Nome: ${vit1_n} | Classe: ${vit1_c}\n`;
