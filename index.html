@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portale Segnalazioni - I.S.I.S.S. Magnaghi-Solari</title>
     <link rel="icon" type="image/png" href="logo-icona.png">
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#004693">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="logo-icona.png">
 
     <style>
         :root {
@@ -412,7 +418,6 @@
 
     <div class="container">
         
-        <!-- TAB 1: SPAZIO INFORMATIVO -->
         <div id="content-info" class="tab-content active">
             <div class="card">
                 <div class="logo-container">
@@ -427,17 +432,16 @@
                 </p>
                 
                 <div class="instruction-box">
-                    <h3>📱 Istruzioni per l'Uso e Consigli Operativi</h3>
+                    <h3>📱 Istruzioni per l'Uso e Installazione</h3>
                     <ol>
-                        <li><strong>Uso dello Smartphone (Consigliato):</strong> Si consiglia caldamente di compilare e inviare le segnalazioni tramite smartphone o tablet. I dispositivi mobili integrano nativamente la gestione dei collegamenti di posta, rendendo l'invio immediato.</li>
-                        <li><strong>Account Istituzionale:</strong> Per l'invio della segnalazione, assicurarsi che sul proprio dispositivo sia configurato e attivo l'account email istituzionale della scuola (es. <code>utente@magnaghisolari.edu.it</code>).</li>
-                        <li><strong>Due modalità di segnalazione:</strong> È possibile utilizzare la sezione SEGNALA (MOD.1) per un rapido invio digitale compilando il form. In alternativa, nella sezione Documenti e Link è disponibile il modello cartaceo ufficiale da scaricare, compilare e consegnare manualmente al docente di riferimento della classe.</li>
+                        <li><strong>Installa sul tuo Dispositivo:</strong> Puoi installare questo portale come un'app sul telefono o PC! Clicca sui tre puntini del browser (o l'icona "+" nella barra degli indirizzi) e seleziona <strong>"Aggiungi a schermata Home"</strong> o <strong>"Installa app"</strong>.</li>
+                        <li><strong>Account Istituzionale:</strong> Per l'invio della segnalazione, assicurarsi che sul proprio dispositivo sia configurato e attivo l'account email istituzionale della scuola.</li>
+                        <li><strong>Due modalità di segnalazione:</strong> È possibile utilizzare la sezione SEGNALA (MOD.1) per un rapido invio digitale compilando il form. In alternativa, nella sezione Documenti e Link è disponibile il modello cartaceo ufficiale.</li>
                     </ol>
                 </div>
             </div>
         </div>
 
-        <!-- TAB 2: MODULO SEGNALAZIONE -->
         <div id="content-segnala" class="tab-content">
             <div class="card">
                 <h2>MODULO 1: Scheda di Segnalazione Caso</h2>
@@ -510,7 +514,6 @@
                         </div>
                     </div>
 
-                    <!-- NUOVA VOCE 4 INSERITA -->
                     <div class="form-group">
                         <label>4. Erano presenti altre persone? *</label>
                         <div class="radio-inline-group">
@@ -523,7 +526,6 @@
                         </div>
                     </div>
 
-                    <!-- CAMPO DINAMICO PER NOMI TESTIMONI -->
                     <div class="form-group" id="testimoni_nomi_container" style="display: none;">
                         <label for="testimoni_nomi">Se sì, riporta i loro nomi:</label>
                         <textarea id="testimoni_nomi" rows="2" placeholder="Inserisci i nomi delle persone presenti..."></textarea>
@@ -554,7 +556,6 @@
             </div>
         </div>
 
-        <!-- TAB 3: AREA DOWNLOAD PDF E LINK UTILI -->
         <div id="content-download" class="tab-content">
             <div class="card">
                 <h2>Documenti, Modulistica e Link Utili</h2>
@@ -622,7 +623,6 @@
             </div>
         </div>
 
-        <!-- FOOTER -->
         <footer>
             I.S.I.S.S. "Magnaghi - Solari" - Salsomaggiore Terme • Fidenza • Parma<br>
             Contatti: pris006003@istruzione.it | pris006003@pec.istruzione.it
@@ -668,7 +668,6 @@
             }
         }
 
-        // FUNZIONE PER MOSTRARE/NASCONDERE CAMPO TESTIMONI
         function handleTestimoniChange(radio) {
             const container = document.getElementById('testimoni_nomi_container');
             const textarea = document.getElementById('testimoni_nomi');
@@ -700,7 +699,6 @@
             const bul1_n = document.getElementById('bullo1_nome').value || "Non specificato";
             const bul1_c = document.getElementById('bullo1_classe').value || "-";
             
-            // Logica recupero dati testimoni
             const testimoniPresenti = document.querySelector('input[name="testimoni_presenti"]:checked').value;
             const testimoniNomi = document.getElementById('testimoni_nomi').value || "Nessuno";
 
@@ -730,6 +728,16 @@
 
             const mailtoLink = `mailto:${emailTo}?subject=${subject}&body=${encodeURIComponent(body)}`;
             window.location.href = mailtoLink;
+        }
+
+        // --- ATTIVAZIONE PWA ---
+        // Registra il Service Worker per fare funzionare l'app in modalità standalone offline
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                .then(reg => console.log('PWA Service Worker Registrato con successo!', reg))
+                .catch(err => console.log('Errore nella registrazione del Service Worker PWA:', err));
+            });
         }
     </script>
 </body>
