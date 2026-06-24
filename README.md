@@ -12,6 +12,7 @@ Per garantire il corretto funzionamento del sistema di invio automatico, si racc
 
 1. Uso dello Smartphone (Consigliato): Si consiglia caldamente di compilare e inviare le segnalazioni tramite smartphone o tablet. 
 I dispositivi mobili integrano nativamente la gestione dei collegamenti di posta, rendendo l'invio immediato.
+
 2. Account Istituzionale: Per l'invio della segnalazione, assicurarsi che sul proprio dispositivo sia configurato e attivo l'account email istituzionale della scuola (es. `utente@magnaghisolari.edu.it` su applicazione Gmail o Outlook).
 
-
+3. Per gli utenti che usano il PC l'invio tramite il tasto "Invia" funzionerà solo se hanno un client di posta (come Outlook o Mail) impostato come predefinito.
