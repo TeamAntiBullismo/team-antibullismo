@@ -1,0 +1,22 @@
+{
+  "name": "Portale Segnalazioni Magnaghi-Solari",
+  "short_name": "Segnalazioni",
+  "description": "Portale per la raccolta e l'invio delle segnalazioni di presunto Bullismo e Cyberbullismo.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#004693",
+  "theme_color": "#004693",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "logo-icona.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo-icona.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
