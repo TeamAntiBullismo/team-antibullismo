@@ -15,6 +15,7 @@
             --red-button-hover: #B71C1C;
             --text-dark: #333333;
             --bg-card: #FFFFFF;
+            --slate-gray: #475569;
         }
 
         * {
@@ -237,6 +238,15 @@
             cursor: pointer;
         }
 
+        .radio-inline-group {
+            display: flex;
+            gap: 20px;
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+        }
+
         .sub-section {
             background: #fdfdfd;
             border: 1px dashed #cbd5e1;
@@ -247,7 +257,7 @@
 
         .sub-section h4 {
             font-size: 0.9rem;
-            color: #475569;
+            color: var(--slate-gray);
             margin-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -500,13 +510,32 @@
                         </div>
                     </div>
 
+                    <!-- NUOVA VOCE 4 INSERITA -->
                     <div class="form-group">
-                        <label for="accaduto_testo">4. Breve presentazione dell'accaduto *</label>
+                        <label>4. Erano presenti altre persone? *</label>
+                        <div class="radio-inline-group">
+                            <label class="radio-option">
+                                <input type="radio" name="testimoni_presenti" value="SÌ" required onchange="handleTestimoniChange(this)"> SÌ
+                            </label>
+                            <label class="radio-option">
+                                <input type="radio" name="testimoni_presenti" value="NO" onchange="handleTestimoniChange(this)"> NO
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- CAMPO DINAMICO PER NOMI TESTIMONI -->
+                    <div class="form-group" id="testimoni_nomi_container" style="display: none;">
+                        <label for="testimoni_nomi">Se sì, riporta i loro nomi:</label>
+                        <textarea id="testimoni_nomi" rows="2" placeholder="Inserisci i nomi delle persone presenti..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="accaduto_testo">5. Breve presentazione dell'accaduto *</label>
                         <textarea id="accaduto_testo" rows="4" required placeholder="Descrivi cosa è successo..."></textarea>
                     </div>
 
                     <div class="form-group">
-                        <label for="frequenza_episodi">5. Quante volte sono successi gli episodi? *</label>
+                        <label for="frequenza_episodi">6. Quante volte sono successi gli episodi? *</label>
                         <input type="text" id="frequenza_episodi" required placeholder="Es: Episodio isolato, succede ogni giorno...">
                     </div>
 
@@ -639,6 +668,20 @@
             }
         }
 
+        // FUNZIONE PER MOSTRARE/NASCONDERE CAMPO TESTIMONI
+        function handleTestimoniChange(radio) {
+            const container = document.getElementById('testimoni_nomi_container');
+            const textarea = document.getElementById('testimoni_nomi');
+            if (radio.value === "SÌ") {
+                container.style.display = "block";
+                textarea.required = true;
+            } else {
+                container.style.display = "none";
+                textarea.required = false;
+                textarea.value = "";
+            }
+        }
+
         function sendEmail(event) {
             event.preventDefault();
             
@@ -656,6 +699,11 @@
             const vit1_c = document.getElementById('vittima1_classe').value || "-";
             const bul1_n = document.getElementById('bullo1_nome').value || "Non specificato";
             const bul1_c = document.getElementById('bullo1_classe').value || "-";
+            
+            // Logica recupero dati testimoni
+            const testimoniPresenti = document.querySelector('input[name="testimoni_presenti"]:checked').value;
+            const testimoniNomi = document.getElementById('testimoni_nomi').value || "Nessuno";
+
             const accaduto = document.getElementById('accaduto_testo').value;
             const frequenza = document.getElementById('frequenza_episodi').value;
 
@@ -670,6 +718,12 @@
             body += `Ruolo: ${ruolo}\n\n`;
             body += `PRESUNTA VITTIMA: ${vit1_n} (Classe: ${vit1_c})\n`;
             body += `PRESUNTO BULLO: ${bul1_n} (Classe: ${bul1_c})\n\n`;
+            body += `ALTRE PERSONE PRESENTI?: ${testimoniPresenti}\n`;
+            if (testimoniPresenti === "SÌ") {
+                body += `NOMI TESTIMONI: ${testimoniNomi}\n\n`;
+            } else {
+                body += `\n`;
+            }
             body += `DESCRIZIONE:\n${accaduto}\n\n`;
             body += `FREQUENZA: ${frequenza}\n`;
             body += `---------------------------------------------------------\n`;
