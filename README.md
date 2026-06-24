@@ -15,7 +15,3 @@ I dispositivi mobili integrano nativamente la gestione dei collegamenti di posta
 2. Account Istituzionale: Per l'invio della segnalazione, assicurarsi che sul proprio dispositivo sia configurato e attivo l'account email istituzionale della scuola (es. `utente@magnaghisolari.edu.it` su applicazione Gmail o Outlook).
 3. Postazioni PC Fisse: Se si richiede l'utilizzo del computer della scuola, previo avviso e consenso, il pulsante di invio aprirà il client di posta predefinito del sistema (es. Outlook). Se la postazione non è configurata con un account utente, l'invio automatico potrebbe non reindirizzare correttamente. In tal caso, si suggerisce di procedere da dispositivo personale.
 
-
-🔗 Link Ufficiale
-L'applicazione è consultabile online al seguente indirizzo:
-👉 [[https://teamantibullismo.github.io/team-antibullismo/](https://teamantibullismo.github.io/team-antibullismo/)](https://teamantibullismo.github.io/Segnalazioni_Bullismo_MagnaghiSolari/)
