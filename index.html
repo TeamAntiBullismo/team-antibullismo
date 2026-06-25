@@ -6,55 +6,70 @@
     <title>Team Antibullismo MS</title>
     <link rel="manifest" href="manifest.json">
     <style>
-        body { font-family: sans-serif; margin: 0; padding: 0; background: #f4f4f9; color: #333; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; background: #003366; color: white; }
-        .container { padding: 20px; text-align: center; }
-        #shareBtn { background: #ffcc00; border: none; padding: 8px 15px; font-weight: bold; border-radius: 5px; cursor: pointer; }
-        footer { text-align: center; padding: 20px; margin-top: 40px; border-top: 1px solid #ccc; font-size: 14px; }
-        footer a { color: #003366; font-weight: bold; text-decoration: none; }
+        /* Manteniamo tutto il tuo stile grafico originario e aggiungiamo le nuove classi */
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; text-align: center; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: #003366; color: white; }
+        header h1 { margin: 0; font-size: 24px; }
+        .container { padding: 20px; max-width: 600px; margin: 0 auto; }
+        .logo-img { max-width: 100%; height: auto; max-height: 250px; margin: 20px 0; border-radius: 8px; }
+        
+        /* Stile Pulsante Condividi */
+        #shareBtn { background-color: #ffcc00; color: #003366; border: none; padding: 8px 15px; font-weight: bold; border-radius: 5px; cursor: pointer; font-size: 14px; }
+        
+        /* Stile Bottone Sito Desk */
+        .desk-btn-container { margin-top: 30px; margin-bottom: 20px; }
+        .desk-btn { display: inline-block; background-color: #003366; color: white; border: none; padding: 12px 24px; font-weight: bold; border-radius: 5px; text-decoration: none; font-size: 16px; cursor: pointer; transition: background 0.3s; }
+        .desk-btn:hover { background-color: #002244; }
     </style>
 </head>
 <body>
 
     <header>
-        <h2>Team Antibullismo MS</h2>
+        <h1>Team Antibullismo MS</h1>
         <button id="shareBtn">📢 Condividi</button>
     </header>
 
     <div class="container">
-        <h1>Benvenuti nel Portale della Squadra Antibullismo</h1>
-        <p>Istituto Magnaghi Solari. Insieme contro il bullismo e il cyberbullismo.</p>
-        <img src="LOGO.jpg" alt="Logo Istituto" style="max-width: 100%; height: auto; margin-top: 20px; max-height: 200px;">
+        <h2>Benvenuti nel Portale di Segnalazione</h2>
+        <p>Istituto Magnaghi Solari. Questo spazio è dedicato alla squadra antibullismo del nostro istituto per raccogliere e gestire le segnalazioni in modo sicuro e riservato.</p>
+        
+        <img src="LOGO.jpg" alt="Logo Team Antibullismo" class="logo-img">
+        
+        <p>Insieme possiamo fare la differenza. Non restare in silenzio.</p>
+        
+        <div class="desk-btn-container">
+            <a href="https://teamantibullismo.github.io/Segnalazioni_Bullismo_MagnaghiSolari/" target="_blank" rel="noopener" class="desk-btn">
+                🖥️ Sito Desk
+            </a>
+        </div>
     </div>
 
-    <footer>
-        <p>Sei su dispositivo mobile? <a href="https://www.magnaghisolari.edu.it" target="_blank" rel="noopener">Passa alla versione desktop del sito</a></p>
-    </footer>
-
     <script>
-        // Registrazione Service Worker per la PWA
+        // Registrazione del Service Worker originale
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js')
-                .then(() => console.log('Service Worker Registrato'))
-                .catch(err => console.log('Errore SW:', err));
+                .then(() => console.log('Service Worker attivi e pronti.'))
+                .catch(err => console.error('Errore nella registrazione del Service Worker:', err));
         }
 
-        // Funzione del pulsante Condividi
+        // Script di condivisione nativa
         const shareBtn = document.getElementById('shareBtn');
         if (navigator.share) {
             shareBtn.addEventListener('click', async () => {
                 try {
                     await navigator.share({
                         title: 'Portale Antibullismo - Magnaghi Solari',
-                        text: 'Accedi al portale della squadra antibullismo del nostro Istituto.',
+                        text: 'Accedi alla piattaforma di segnalazione della squadra antibullismo del nostro Istituto.',
                         url: window.location.href
                     });
-                } catch (err) { console.log('Condivisione annullata', err); }
+                } catch (err) { 
+                    console.log('Condivisione annullata o non riuscita', err); 
+                }
             });
         } else {
             shareBtn.addEventListener('click', () => {
                 navigator.clipboard.writeText(window.location.href);
-                alert('Link copiato negli appunti! Ora puoi condividerlo.');
+                alert('Link copiato negli appunti! Ora puoi inviarlo o incollarlo dove desideri.');
             });
         }
     </script>
